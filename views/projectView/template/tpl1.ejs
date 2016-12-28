@@ -1,0 +1,11 @@
+<%
+	var data = data0.reward;
+	for(var i=0;i<data.length;i++) {
+	  var value = data[i];
+	%>
+	<li>
+	  <img src="../../project/img/quote1.png" alt="">
+	  <p><%=value.status%></p>
+	  <p><%=value.taskid%></p>
+	</li>
+<%}%>

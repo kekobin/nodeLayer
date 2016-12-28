@@ -1,0 +1,47 @@
+{
+  "name": "nodeLayer",
+  "version": "1.0.0",
+  "author": "kekobin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kekobin/nodeLayer"
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp build"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0" 
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.0",
+    "chalk": "^0.5.1",
+    "del": "~0.1.3",
+    "ejs": "^2.5.2",
+    "glob": "~4.2.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-copy": "^1.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-html-helper": "^1.0.3",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-imagemin": "~0.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-livereload": "^3.8.1",
+    "gulp-md5-plus": "^0.2.5",
+    "gulp-minify-css": "~0.3.5",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-replace": "^0.5.4",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "~0.3.1",
+    "jshint": "^2.9.4",
+    "pump": "^1.0.2"
+  }
+}

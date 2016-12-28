@@ -1,0 +1,25 @@
+html, body, div {
+  margin: 0;
+  padding: 0; }
+
+ul, li {
+  list-style: none; }
+
+ul:before, ul:after {
+  content: '';
+  display: table;
+  overflow: hidden; }
+ul:after {
+  clear: both; }
+ul li {
+  float: left; }
+
+.main {
+  width: 1000px;
+  height: 500px;
+  background: blue; }
+  .main .content {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background: yellow; }

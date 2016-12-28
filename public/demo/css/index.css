@@ -1,0 +1,166 @@
+@charset "UTF-8";
+html {
+  height: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body, p, dl, ul, li, dl, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+a, img {
+  border: 0;
+}
+a, a:hover {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.clearfix:after {
+  display: block;
+  content: '';
+  clear: both;
+  visibility: hidden;
+  height: 0;
+}
+body {
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  background: #f7f7f8;
+}
+a, input {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.wrap {
+  width: 1100px;
+  margin: 0 auto;
+}
+.filter {
+  margin-bottom: 10px;
+}
+.filter dd {
+  float: left;
+  margin: 9px 10px 0 0;
+  text-align: center;
+  line-height: 26px;
+  padding: 0 9px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.filter dd:hover {
+  color: #ff650f;
+  border-color: #ff650f;
+}
+.video-list-item {
+  position: relative;
+  font-family: "Microsoft YaHei";
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  margin: 0 10px 20px 0;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #f0f0f0;
+  width: 260px;
+  font-size: 12px;
+  background: #fff;
+}
+.video-list-item .video-info {
+  display: block;
+  width: 100%;
+  height: 158px;
+  position: relative;
+  overflow: hidden;
+}
+.video-list-item .video-info .pic {
+  position: relative;
+  left: -1%;
+  top: -1%;
+  width: 102%;
+  height: 102%;
+  overflow: hidden;
+  max-width: none;
+}
+.video-list-item .all_live_tit a {
+  display: block;
+  color: #3a3a3a;
+  -webkit-transition: color .2s ease-out;
+  transition: color .2s ease-out;
+  padding-right: 20px;
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+.video-list-item .all_live_tit a:hover {
+    color: #fa0;
+    text-decoration: none;
+}
+.video-list-item .txt {
+    position: relative;
+    display: block;
+    color: #999;
+    font-size: 12px;
+    line-height: 20px;
+    height: 20px;
+    padding: 6px 0 0 5px;
+}
+.video-list-item .avatar {
+    width: 100%;
+    height: 24px;
+    vertical-align: middle;
+    overflow: hidden;
+    position: absolute;
+    left: 5px;
+}
+.video-list-item .avatar .nick {
+    float: left;
+    margin-left: 5px;
+    width: 68%;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.video-list-item .avatar img {
+  float: left;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+}
+
+.video-list-item .txt .game-type a {
+    color: #f90;
+    -webkit-transition: color .2s ease-out;
+    transition: color .2s ease-out;
+}
+.video-list-item .txt .game-type {
+    position: relative;
+    background: #fff;
+    max-width: 72px;
+    height: 18px;
+    margin-right: 5px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+.num {
+  display: none;
+}
