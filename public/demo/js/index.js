@@ -1,21 +1,25 @@
-$(document).ready(function(){
-	
-	// $.ajax({
-	// 	url: "https://pay.huya.com/index.php?m=PayGoldbeanWechat&do=getPayInfo",
-	// 	dataType:"jsonp"
-	// }).done(function(data){
-	// 	if(data.status == 200) {
-	// 	}
-	// 	var $ul = $('.pay-list');
+$(function() {
+	var baseTplUrl = '',
+		// dataUrl = 'http://hd.huya.com/201608hzls/js/json/01.json';
+		dataUrl = 'http://mobilegame.huya.com/reward/get_reward_state?type=0';
 
-	// 	var html = '';
+	$('#changeData').click(function(e) {
+		$.ajax({
+			url: dataUrl,
+			dataType: 'jsonp',
+	        jsonpCallback: 'dataCallback1',
+			success: function(resp) {
+				console.log(JSON.stringify(resp))
+var data = {"reward":[{"status":9,"taskid":9},{"status":9,"taskid":9},{"status":9,"taskid":3},{"status":9,"taskid":4},{"status":9,"taskid":5},{"status":3,"taskid":6},{"status":3,"taskid":7}]}
+				
+				var t = $('#tpl1').html()
+				var template = _.template(t);
+				var html = template({
+					data0: data
+				})
 
-	// 	for(var i = 0; i< data.data.payPackage.length; i++) {
-
-	// 		var item = data.data.payPackage[i];
-	// 		html +='<li><span>' +item.exchange_bean + '金豆</span></li>'
-
-	// 	}
-	// 	$ul.html(html);
-	// })
+				$('#list').html(html);
+			}
+		});
+	});
 });

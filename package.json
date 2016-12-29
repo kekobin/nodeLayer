@@ -17,7 +17,7 @@
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0" 
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "browser-sync": "^2.7.0",
@@ -27,7 +27,6 @@
     "glob": "~4.2.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean": "^0.3.2",
     "gulp-copy": "^1.0.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-html-helper": "^1.0.3",
@@ -40,8 +39,10 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-replace": "^0.5.4",
     "gulp-ruby-sass": "^2.1.1",
+    "gulp-sequence": "^0.4.6",
     "gulp-uglify": "~0.3.1",
     "jshint": "^2.9.4",
-    "pump": "^1.0.2"
+    "pump": "^1.0.2",
+    "run-sequence": "^1.2.2"
   }
 }
