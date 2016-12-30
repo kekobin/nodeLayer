@@ -11,9 +11,11 @@
 <body>
   <!-- content -->
 
+  <%- include template/tpl1 %>
+  
   <!--  前后端复用的模版，使用系统全局方法: Helper.template(项目名称,模版名称) -->
   <script type="text/template" id="tpl1">
-    <%- Helper.template('demo', 'template/tpl1.ejs') %>
+    <%- Helper.template('demo', 'template/tpl1') %>
   </script>
 
   <!--  use relative path in development mode
