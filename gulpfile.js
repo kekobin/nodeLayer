@@ -13,7 +13,6 @@ var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');  
 var livereload = require('gulp-livereload');  
 var uglify = require('gulp-uglify');
-var pump = require('pump');
 var cssmin = require('gulp-cssmin');
 var imagemin = require('gulp-imagemin');
 var del = require('del');
