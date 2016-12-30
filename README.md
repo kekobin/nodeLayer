@@ -27,6 +27,8 @@ For example:
 
 ![](http://img.hb.aicdn.com/bed0512e2da8c517c5dfc8c88835292e0a4b98974630-95KlFq_fw658)
   
+Then you can view your project in browser with: [http://localhost:3000/demo]  
+
 When you want to publish your project, just use:
 
 ```shell
