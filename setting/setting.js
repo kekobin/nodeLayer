@@ -11,7 +11,7 @@ module.exports = function(name) {
 	var configMainStr = /\{([\s\S]*)\}/.exec(data)[0];
 	var configData = JSON.parse(configMainStr);
 
-	delete configData[configData.currentProject];
+	// delete configData[configData.currentProject];
 	configData.currentProject = name;
 	configData[name] = {
 		urls: []

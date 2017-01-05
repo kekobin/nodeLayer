@@ -6,25 +6,11 @@ var util = require('../util/getData');
 var path = require('path');
 var config = require('../config/projectConfig');
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   var urls = [
-//   	'http://hd.huya.com/201608hzls/js/json/01.json',
-//   	'http://hd.huya.com/201608hzls/js/json/021.json',
-//   	'http://hd.huya.com/201608hzls/js/json/03.json',
-//   	'http://hd.huya.com/201608hzls/js/json/04.json'
-//   	// 'http://hd.huya.com/201608hzls/js/json/024.json',
-//   	// 'http://hd.huya.com/201608hzls/js/json/025.json'
-//   ];
-
-//   util.getDatas(urls,'data').done(function(data){
-//     res.render('index',data);
-//   })
-// });
-
 for(var projectName in config) {
-  var projectConfig = config[projectName];
+  console.log(projectName)
+  if(projectName == 'currentProject') continue;
 
+  var projectConfig = config[projectName];
   handleProjectRouter(projectName, projectConfig);
 }
 
