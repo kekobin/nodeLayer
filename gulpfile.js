@@ -38,9 +38,9 @@ var filePath = {
 	srcImg: 'public/' + projectName + '/img/*',
 	srcCss: 'public/' + projectName + '/css/*.css',
 	srcCssDir: 'public/' + projectName + '/css',
-	destCss: 'dest/assets/css',
-	destJS: 'dest/assets/js',
-	destImg: 'dest/assets/img',
+	destCss: 'dest/' + projectName + '/css',
+	destJS: 'dest/' + projectName + '/js',
+	destImg: 'dest/' + projectName + '/img',
 	configPath: 'config/projectConfig.js'
 };
 

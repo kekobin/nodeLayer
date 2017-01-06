@@ -52,7 +52,7 @@ var util = {
       }
       var rawData = '';
       res.on('data', function(chunk) {
-        rawData = chunk;
+        rawData += chunk;
       });
 
       res.on('end', function() {

@@ -12,14 +12,16 @@ module.exports = function(name) {
 	var configData = JSON.parse(configMainStr);
 
 	// delete configData[configData.currentProject];
-	configData.currentProject = name;
-	configData[name] = {
-		urls: []
-	};
+	if(configData.currentProject != name) {
+		configData.currentProject = name;
+		configData[name] = {
+			urls: []
+		};
 
-	//将之前{}的配置内容替换为修改后的信息，并写入到配置文件
-	var newConfig = data.replace(configMainStr, JSON.stringify(configData));
-	fs.writeFileSync(filePath, newConfig, 'utf-8');
+		//将之前{}的配置内容替换为修改后的信息，并写入到配置文件
+		var newConfig = data.replace(configMainStr, JSON.stringify(configData));
+		fs.writeFileSync(filePath, newConfig, 'utf-8');
+	}
 
 	//创建对应项目的开发目录
 	var publicDir = {
