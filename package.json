@@ -7,7 +7,7 @@
     "url": "https://github.com/kekobin/nodeLayer"
   },
   "scripts": {
-    "start": "gulp serve",
+    // "start": "gulp serve -n projectName",
     "build": "gulp build"
   },
   "dependencies": {

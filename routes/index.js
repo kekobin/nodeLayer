@@ -8,22 +8,18 @@ var config = require('../config/projectConfig');
 
 for(var projectName in config) {
   console.log(projectName)
-  if(projectName == 'currentProject') continue;
-
   var projectConfig = config[projectName];
   handleProjectRouter(projectName, projectConfig);
 }
 
 function handleProjectRouter(projectName, projectConfig) {
-  var urls = projectConfig.urls;
-  var routeName = projectName === 'root' ? '' : projectName;
+  var urlsConf = projectConfig.urlsConf;
 
-  router.get('/' + routeName, function(req, res, next) {
-
-    if(urls == null || urls.length === 0) {
+  router.get('/' + projectName, function(req, res, next) {
+    if(urlsConf == null || urlsConf.length === 0) {
       res.render( projectName + 'View/index', {});
     } else {
-      util.getDatas(urls,'data').done(function(data){
+      util.getDatas(projectName, urlsConf,'data').done(function(data){
         res.render( projectName + 'View/index', data);
       });
     }

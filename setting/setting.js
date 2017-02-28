@@ -15,7 +15,7 @@ module.exports = function(name) {
 	if(configData.currentProject != name) {
 		configData.currentProject = name;
 		configData[name] = {
-			urls: []
+			urlsConf: {}
 		};
 
 		//将之前{}的配置内容替换为修改后的信息，并写入到配置文件
