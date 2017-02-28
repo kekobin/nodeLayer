@@ -18,7 +18,7 @@ Static sources are placing bellow 'public/demo'. Views and templates are in 'vie
 
 When you need to request for data, you should config request urls in 'config/projectConfig.js',which looks as :
 
-![](http://img.hb.aicdn.com/e3b3577377b1a4ddf34f35884890c6042177b8c84b94-i6fv2T_fw658)  
+![](http://img.hb.aicdn.com/dda153659ee872a84b4dd96f7521862eca6f07166039-GM0G1t_fw658)  
 
 and this will get a response with an object which names  as 'data0', 'data1', etc.You can use them in your templates directly.
 
@@ -36,7 +36,7 @@ gulp build
 ```    
 This will get a dest directory:  
 
-![](http://img.hb.aicdn.com/1836c78a167afe737a6b6e3f0e8853f19a45d1a1fc4-IYSjJU_fw658)
+![](http://img.hb.aicdn.com/7b0d6fc2ab394f15d46c852045aba1e733a10ab7e92-JTndym_fw658)
 
 In which, 'assets/' should be uploading to CDN, and 'demoView/' should be deploying on a Node server!
 
