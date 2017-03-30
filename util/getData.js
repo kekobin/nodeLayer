@@ -23,13 +23,13 @@ var util = {
 
       if((Date.now() - expires) > cacheTime) {
         delete cdnCustom[projectName];
-        getFromServer();
+        getFromServer.call(this);
       } else {
         console.log('====get data from cache====');
         deferred.resolve(cdnCustom[projectName].data);
       }
     } else {
-      getFromServer();
+      getFromServer.call(this);
     }
 
     function getFromServer() {
