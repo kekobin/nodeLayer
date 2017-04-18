@@ -1,0 +1,29 @@
+<%
+    var data = data1.data;
+    if(data) {
+        var mvpInfo = data.mvpInfo;
+        var attacked = data.attacked;
+        var attacker = data.attacker;
+    }
+%>
+
+<ul class="badge" id="badge">
+    <li class="badge_01">
+        <div class="img_wrap">
+            <img width="100%" src="<%=mvpInfo.logoUrl%>" onerror="this.onerror=null;this.src='../../nodeLayerDemo/img/default.jpg'"/>
+            <p><%=mvpInfo.nickName ? mvpInfo.nickName : '- 虚位以待 -'%></p>
+        </div>
+    </li>
+    <li class="badge_02">
+        <div class="img_wrap">
+            <img width="100%" src="<%=attacked.logoUrl%>" onerror="this.onerror=null;this.src='../../nodeLayerDemo/img/default.jpg'"/>
+            <p><%=attacked.nickName ? attacked.nickName : '- 虚位以待 -'%></p>
+        </div>
+    </li>
+    <li class="badge_03">
+        <div class="img_wrap">
+            <img width="100%" src="<%=attacker.logoUrl%>" onerror="this.onerror=null;this.src='../../nodeLayerDemo/img/default.jpg'"/>
+            <p><%=attacker.nickName ? attacker.nickName : '- 虚位以待 -'%></p>
+        </div>
+    </li>
+</ul>

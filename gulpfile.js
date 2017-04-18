@@ -100,7 +100,7 @@ gulp.task('build_css', function () {
 
 gulp.task('build_img', function () {
     return gulp.src(filePath.srcImg)
-    	.pipe(md5(6,md5TargetPath))
+    	// .pipe(md5(6,md5TargetPath))
         .pipe(imagemin())
         .pipe(gulp.dest(filePath.destImg))
 });

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="edge" >
+  <title>project nodeLayerDemo</title>
+  <!--  
+  	开发环境使用相对路径，打包(gulp build)时静态资源会根据配置替换成绝对路径,
+	如(http://hd.huya.com/nodeLayerDemo/css/index.css)
+  -->
+  <link rel="stylesheet" href="../../nodeLayerDemo/css/index.css" charset="utf-8">
+</head>
+<body>
+  <h1>Hello Node Layer!!!</h1>
+
+  <img width="100%" src="" onerror="this.onerror=null;this.src='../../nodeLayerDemo/img/default.jpg'"/>
+
+  <div id="wraper">
+  	<!--直出模版数据-->
+  	<%- include template/tpl1 %>
+  </div>
+
+  <!-- 
+	如在前端需复用后端模版，使用框架全局方法Helper.template(项目名,'template/' + 模版名)
+  -->
+  <script type="text/template" id="tpl1">
+  	<%- Helper.template('nodeLayerDemo', 'template/tpl1') %>
+  </script>
+  
+  <!--  
+  	开发环境使用相对路径，打包(gulp build)时静态资源会根据配置替换成绝对路径,
+	如(http://hd.huya.com/nodeLayerDemo/js/index.js)
+  -->
+  <script type="text/javascript" src="../../nodeLayerDemo/js/index.js"></script>
+</body>
+</html> 
