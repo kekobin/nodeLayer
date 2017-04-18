@@ -1,45 +1,56 @@
 # nodeLayer
-> A node interlayer between frontend and backend, which functions as request data from backend, such as java,php, etc, and provide views to browser directly with combining data and templates in this layer.
+
+> 一个介于前端与后端之间的中间层，该中间层用于访问后台(如php、j   ava)数据，并将访问的返回结果渲染到本地模版中，提供(直出)给浏览器。
+
+具体理念如图所示:
+
+![](http://gtms03.alicdn.com/tps/i3/T1xW8OFrXkXXXK71TW-590-611.png) 
 
 ## Usage
 
-In development mode:
+## 开发模式:
 
-```shell
-gulp serve -n projectName
-```  
-The '-n projectName' is necessary, which is using for constructing project directory, and will be as a root path in static sources' links of html or ejs.  
+### 步骤一:
 
-For example, 'gulp serve -n demo' will run a server and create a structure as below:  
+    <span class="hljs-title">gulp</span> serve -n projectName
+    `</pre>
 
-![](http://img.hb.aicdn.com/a2b5481431908bd050955dc9eb244036ec634c182d42-Aup4GB_fw658)  
+    '-n projectName' 是必须的，指定当前开发的项目名称，如'-n nodeLayerDemo',那么系统将自动生成其静态资源目录和node中间层级目录：
 
-Static sources are placing bellow 'public/demo'. Views and templates are in 'views/demoView', where the entry is 'views/demoView/index.ejs'.
+    ![](http://upload-images.jianshu.io/upload_images/639270-712400bad110ed8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
 
-When you need to request for data, you should config request urls in 'config/projectConfig.js',which looks as :
+    其中，'nodeLayerDemo/'为静态资源目录，'nodeLayerDemoView/'为视图和模版目录。
 
-![](http://img.hb.aicdn.com/dda153659ee872a84b4dd96f7521862eca6f07166039-GM0G1t_fw658)  
+    ### 步骤二:
 
-and this will get a response with an object which names  as 'data0', 'data1', etc.You can use them in your templates directly.
+    当需要使用到接口访问数据时，在'config/projectConfig.js'中配置好对应的接口以及接口返回数据的标识：
 
-If you want to reuse a template, it is also simple.
-For example:  
+    ![](http://upload-images.jianshu.io/upload_images/639270-db3918ad07c8939b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)  
 
-![](http://img.hb.aicdn.com/bed0512e2da8c517c5dfc8c88835292e0a4b98974630-95KlFq_fw658)
-  
-Then you can view your project in browser with: [http://localhost:3000/demo]  
+    这样你就能够获取到名为'data1'的接口数据，直接应用到模版中。
 
-When you want to publish your project, just use:
+    如果你需要在前端复用node层的模版，也非常的简单，使用框架全局方法Helper.template(项目名,'template/' + 模版名)即可：
 
-```shell
-gulp build
-```    
-This will get a dest directory:  
+    ![](http://upload-images.jianshu.io/upload_images/639270-f9246ba4eca71b4b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![](http://img.hb.aicdn.com/7b0d6fc2ab394f15d46c852045aba1e733a10ab7e92-JTndym_fw658)
+    ### 步骤二:
 
-In which, 'assets/' should be uploading to CDN, and 'demoView/' should be deploying on a Node server!
+    现在，即可在浏览器中访问到创建好的项目了: [[http://localhost:3000/nodeLayerDemo](http://localhost:3000/nodeLayerDemo)]  
+
+    ## 生产模式:
+
+    当完成项目开发时，使用如下命令发布代码:
+
+    <pre>`<span class="hljs-title">gulp</span> build
+
+它将打包生成如下目录:  
+
+![](http://upload-images.jianshu.io/upload_images/639270-f05b3ac3c24a18a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+其中，'nodeLayerDemo'属于静态资源，直接发布到CDN;'nodeLayerDe moView'是node层级目录，发布到node server！
+
+至此，一个node中间层的开发到发布流程完结了！
 
 ## License
 
-http://en.wikipedia.org/wiki/MIT_License[MIT License]
+[http://en.wikipedia.org/wiki/MIT_License[MIT](http://en.wikipedia.org/wiki/MIT_License[MIT) License]
