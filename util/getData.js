@@ -4,6 +4,7 @@ var http = require('http');
 var https = require('https');
 var Q = require('q');
 var eachAsync = require('each-async');
+var requestify = require('requestify');
 
 var Reuest = {
   http: http,
@@ -14,11 +15,13 @@ var Reuest = {
 var cdnCustom = {};
 
 var util = {
-  getDatas: function(projectName, urlsConf, key) {
+  getDatas: function(projectName, urlsConf, key, req) {
     var deferred = Q.defer();
+    var cookies = req.cookies;
+    var noCache = !!req.query.cache;//在请求的url上面加上?cache=1去掉接口访问的缓存
 
     //对每一个页面的接口请求，请求到的数据缓存到内存中60s
-    if(typeof cdnCustom[projectName] == 'object') {
+    if(typeof cdnCustom[projectName] == 'object' && !noCache) {
       var expires = cdnCustom[projectName].expires, cacheTime = 60000;
 
       if((Date.now() - expires) > cacheTime) {
@@ -53,7 +56,7 @@ var util = {
 
       eachAsync(urlsArr, function (url, index, done) {
         var urlName = urlsNameArr[index];
-        var def = self.requestUrl(url, urlName);
+        var def = self.requestUrl(url, urlName, cookies);
         promiseArr.push(def);
 
         if(promiseArr.length === urlsArr.length) {
@@ -82,38 +85,53 @@ var util = {
     
     return deferred.promise;
   },
-  requestUrl: function(url, urlName) {
+  requestUrl: function(url, urlName, cookies) {
     var protocol = /https\:/.test(url) ? https : http;
     console.log('请求的url地址是:' + url);
     var deferred = Q.defer();
 
-    protocol.get(url, function(res){
-      var statusCode = res.statusCode;
-      var contentType = res.headers['content-type'];
-      var error;
-      if (statusCode !== 200) {
-        error = new Error(`Request Failed.\n` +
-          `Status Code: ${statusCode}`);
-      }
-      if (error) {
-        console.log(error.message);
-        deferred.resolve(null);
-        return;
-      }
-      var rawData = '';
-      res.on('data', function(chunk) {
-        rawData += chunk;
-      });
+    // protocol.get(url, function(res){
+    //   var statusCode = res.statusCode;
+    //   var contentType = res.headers['content-type'];
+    //   var error;
+    //   if (statusCode !== 200) {
+    //     error = new Error(`Request Failed.\n` +
+    //       `Status Code: ${statusCode}`);
+    //   }
+    //   if (error) {
+    //     console.log(error.message);
+    //     deferred.resolve(null);
+    //     return;
+    //   }
+    //   var rawData = '';
+    //   res.on('data', function(chunk) {
+    //     rawData += chunk;
+    //   });
 
-      res.on('end', function() {
+    //   res.on('end', function() {
+    //     deferred.resolve({
+    //       urlName: urlName,
+    //       data: rawData
+    //     });
+    //   });
+    // }).on('error', function(e){
+    //   deferred.resolve(null);
+    //   console.log(`Got error: ${e.message}`);
+    // });
+    
+    //通过requestify带上对应的cookies
+    requestify.get(url, {
+        cookies: cookies
+    }).then(function(response) {
+        var data = response.body;
+
         deferred.resolve({
           urlName: urlName,
-          data: rawData
+          data: data
         });
-      });
-    }).on('error', function(e){
+    }).fail(function(response) {
       deferred.resolve(null);
-      console.log(`Got error: ${e.message}`);
+      console.log(`problem with request: ${response}`);
     });
 
     return deferred.promise;

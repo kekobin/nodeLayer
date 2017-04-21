@@ -19,7 +19,7 @@ function handleProjectRouter(projectName, projectConfig) {
     if(urlsConf == null || urlsConf.length === 0) {
       res.render( projectName + 'View/index', {});
     } else {
-      util.getDatas(projectName, urlsConf,'data').done(function(data){
+      util.getDatas(projectName, urlsConf,'data', req).done(function(data){
         res.render( projectName + 'View/index', data);
       });
     }
