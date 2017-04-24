@@ -20,6 +20,8 @@ function handleProjectRouter(projectName, projectConfig) {
       res.render( projectName + 'View/index', {});
     } else {
       util.getDatas(projectName, urlsConf,'data', req).done(function(data){
+        //根据这个判断是否登录
+        data.yyuid = req.cookies.yyuid;
         res.render( projectName + 'View/index', data);
       });
     }
