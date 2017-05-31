@@ -86,6 +86,7 @@ gulp.task('replace', function(){
 
 gulp.task('build_js', function () {
   	return gulp.src(filePath.srcJS)
+        .pipe(replace(/\.\.\//g, CDN_PATH + projectName + '/'))
   		.pipe(md5(6,md5TargetPath))
         .pipe(uglify())
         .pipe(gulp.dest(filePath.destJS))
