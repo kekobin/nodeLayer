@@ -32,11 +32,11 @@ var filePath = {
 	srcName: 'src',
 	destName: 'dest',
 	srcSass: 'public/' + projectName + '/sass/*.scss',
-	srcJS: 'public/' + projectName + '/js/*.js',
+	srcJS: 'public/' + projectName + '/js/**/*.js',
 	srcEjs: 'views/' + projectName + 'View/*.ejs',
 	srcTpl: 'views/' + projectName + 'View/template/*.ejs',
 	srcImg: 'public/' + projectName + '/img/*',
-	srcCss: 'public/' + projectName + '/css/*.css',
+	srcCss: 'public/' + projectName + '/css/**/*.css',
 	srcCssDir: 'public/' + projectName + '/css',
 	destCss: 'dest/' + projectName + '/css',
 	destJS: 'dest/' + projectName + '/js',
@@ -93,6 +93,7 @@ gulp.task('build_js', function () {
 
 gulp.task('build_css', function () {
     return gulp.src(filePath.srcCss)
+        .pipe(replace(/\.\.\//g, CDN_PATH + projectName + '/'))
     	.pipe(md5(6,md5TargetPath))
         .pipe(cssmin())
         .pipe(gulp.dest(filePath.destCss));
